@@ -1,3 +1,33 @@
+ext {
+    spring_version = '4.1.1.RELEASE'
+}
+
+ext.libraries = [
+        slf4j: 'org.slf4j:slf4j-api:1.7.7',
+        junit: [
+                'junit:junit:4.11',
+                'org.mockito:mockito-all:1.10.8'
+        ],
+        io: 'commons-io:commons-io:2.4',
+        guice: 'com.google.inject:guice:3.0',
+        servlet: 'javax.servlet:javax.servlet-api:3.0.1',
+        springCore: [
+                "org.springframework:spring-core:$spring_version",
+                "org.springframework:spring-context:$spring_version"
+        ],
+        springMvc: [
+                "org.springframework:spring-webmvc:$spring_version"
+        ],
+        springTest: [
+                "org.springframework:spring-test:$spring_version"
+        ],
+        guava: 'com.google.guava:guava:18.0',
+        jackson: [
+                'com.fasterxml.jackson.core:jackson-core:2.4.3',
+                'com.fasterxml.jackson.core:jackson-databind:2.4.3'
+        ]
+]
+
 allprojects {
     apply plugin: 'idea'
 }
@@ -18,8 +48,6 @@ subprojects {
 
     dependencies {
         testCompile libraries.junit
-        testCompile libraries.scala
-        testCompile libraries.scala_test
     }
 
     jar {
