@@ -1,0 +1,5 @@
+description = 'WebApp launcher using embedded tomcat'
+
+dependencies {
+    compile libraries.tomcatEmbed
+}
