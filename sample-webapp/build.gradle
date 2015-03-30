@@ -1,5 +1,18 @@
 description = 'Sample web application for testing'
 
-dependencies {
+apply plugin: 'war'
+apply plugin: 'jetty'
 
+task explodedWar(type: Copy) {
+    into "${buildDir}/output/webapp"
+    with war
+}
+
+war.dependsOn explodedWar
+
+dependencies {
+    providedCompile libraries.servlet
+    compile libraries.io
+    compile libraries.springCore
+    compile libraries.springMvc
 }
