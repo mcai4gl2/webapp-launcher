@@ -1,0 +1,43 @@
+allprojects {
+    apply plugin: 'idea'
+}
+
+subprojects {
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    group = 'webapp.launcher'
+    version = '0.0.1-SNAPSHOT'
+
+    println "Building ${project.name} ($version) with Gradle [${project.gradle.gradleVersion}], Java [${System.getProperty('java.version')}]"
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        testCompile libraries.junit
+        testCompile libraries.scala
+        testCompile libraries.scala_test
+    }
+
+    jar {
+        destinationDir = file("${buildDir}/output")
+    }
+
+    jar << {
+        new File(jar.destinationDir.path, "build-info.txt").withWriter {
+            out ->
+                out.writeLine("Project Name: ${project.name}")
+                out.writeLine("Project Version: ${project.version}")
+                out.writeLine("Build Time: " + new Date())
+        }
+    }
+
+    test {
+        testLogging {
+            events "passed", "skipped", "failed"
+        }
+    }
+}
