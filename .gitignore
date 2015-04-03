@@ -9,3 +9,4 @@ build
 out
 .gradle
 generated-sources
+work
