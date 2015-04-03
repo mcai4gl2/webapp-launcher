@@ -11,7 +11,12 @@ ext.libraries = [
         ],
         tomcatEmbed: [
                 "org.apache.tomcat.embed:tomcat-embed-core:$tomcat_embed_version",
-                "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcat_embed_version"
+                "org.apache.tomcat.embed:tomcat-embed-logging-juli:$tomcat_embed_version",
+                "org.apache.tomcat.embed:tomcat-embed-jasper:$tomcat_embed_version",
+                "org.apache.tomcat:tomcat-jasper:$tomcat_embed_version",
+                "org.apache.tomcat:tomcat-jasper-el:$tomcat_embed_version",
+                "org.apache.tomcat:tomcat-el-api:$tomcat_embed_version",
+                "org.apache.tomcat:tomcat-jsp-api:$tomcat_embed_version"
         ],
         io: 'commons-io:commons-io:2.4',
         guice: 'com.google.inject:guice:3.0',
@@ -30,7 +35,9 @@ ext.libraries = [
         jackson: [
                 'com.fasterxml.jackson.core:jackson-core:2.4.3',
                 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
-        ]
+        ],
+        io: 'commons-io:commons-io:2.4',
+        cli: 'commons-cli:commons-cli:1.2'
 ]
 
 allprojects {

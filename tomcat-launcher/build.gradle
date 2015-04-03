@@ -2,4 +2,7 @@ description = 'WebApp launcher using embedded tomcat'
 
 dependencies {
     compile libraries.tomcatEmbed
+    compile libraries.guava
+    compile libraries.io
+    compile libraries.cli
 }
