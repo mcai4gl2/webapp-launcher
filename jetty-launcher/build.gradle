@@ -3,4 +3,6 @@ description = 'WebApp launcher using jetty'
 dependencies {
     compile libraries.jetty
     compile libraries.cli
+    compile libraries.slf4j
+    compile libraries.logback
 }
