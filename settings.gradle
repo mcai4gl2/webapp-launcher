@@ -6,3 +6,5 @@ include 'tomcat-launcher'
 
 include 'http-client'
 
+include 'jetty-launcher'
+

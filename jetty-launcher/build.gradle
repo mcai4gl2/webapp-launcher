@@ -1,0 +1,6 @@
+description = 'WebApp launcher using jetty'
+
+dependencies {
+    compile libraries.jetty
+    compile libraries.cli
+}

@@ -18,6 +18,9 @@ ext.libraries = [
                 "org.apache.tomcat:tomcat-el-api:$tomcat_embed_version",
                 "org.apache.tomcat:tomcat-jsp-api:$tomcat_embed_version"
         ],
+        jetty: [
+                "org.eclipse.jetty:jetty-webapp:9.3.0.M2"
+        ],
         jettyClient: 'org.eclipse.jetty:jetty-client:9.3.0.M2',
         io: 'commons-io:commons-io:2.4',
         guice: 'com.google.inject:guice:3.0',
