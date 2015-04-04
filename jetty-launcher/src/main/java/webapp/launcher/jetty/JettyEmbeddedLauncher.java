@@ -82,5 +82,6 @@ public class JettyEmbeddedLauncher {
 
         launcher.startAndWait();
         // TODO shutdown hook http://www.petervannes.nl/files/084d1067451c4f9a56f9b865984f803d-52.php
+        // TODO shutdown http://lifelongprogrammer.blogspot.co.uk/2013/02/start-shutdown-embedded-jetty.html
     }
 }
