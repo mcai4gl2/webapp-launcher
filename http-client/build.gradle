@@ -1,5 +1,0 @@
-description = 'Simple http client'
-
-dependencies {
-    compile libraries.jettyClient
-}
