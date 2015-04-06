@@ -7,8 +7,12 @@ import org.apache.commons.cli.Options;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerCollection;
 import org.eclipse.jetty.webapp.WebAppContext;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class JettyEmbeddedLauncher {
+    public static final Logger LOGGER = LoggerFactory.getLogger(JettyEmbeddedLauncher.class);
+
     public static final String URL_OPTION = "url";
     public static final String PATH_OPTION = "path";
     public static final String PORT_OPTION = "port";
@@ -80,8 +84,20 @@ public class JettyEmbeddedLauncher {
             }
         }
 
-        launcher.startAndWait();
-        // TODO shutdown hook http://www.petervannes.nl/files/084d1067451c4f9a56f9b865984f803d-52.php
-        // TODO shutdown http://lifelongprogrammer.blogspot.co.uk/2013/02/start-shutdown-embedded-jetty.html
+        launcher.start();
+
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                try {
+                    LOGGER.info("Got SIGTERM, shutting down Jetty server");
+                    launcher.server.stop();
+                } catch (Exception ex) {
+                    LOGGER.error("Error when shutting down Jetty server", ex);
+                }
+            }
+        });
+
+        launcher.server.join();
     }
 }
