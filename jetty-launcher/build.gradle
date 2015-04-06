@@ -6,3 +6,15 @@ dependencies {
     compile libraries.slf4j
     compile libraries.logback
 }
+
+task copyToLib {
+    ['compile'].each {
+        mode ->
+            copy {
+                from configurations.getByName(mode).files
+                into "${jar.destinationDir}/lib"
+            }
+    }
+}
+
+build.dependsOn copyToLib
