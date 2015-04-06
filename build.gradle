@@ -115,5 +115,5 @@ subprojects {
         delete "file:/${project.parent.projectDir}/artifacts"
     }
 
-    task stage(dependsOn: ['clean', 'build'])
+    task stage(dependsOn: ['build'])
 }
