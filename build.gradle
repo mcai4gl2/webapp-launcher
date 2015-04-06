@@ -56,6 +56,7 @@ allprojects {
 
 subprojects {
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     sourceCompatibility = 1.8
     targetCompatibility = 1.8
@@ -89,5 +90,28 @@ subprojects {
         testLogging {
             events "passed", "skipped", "failed"
         }
+    }
+
+    publishing {
+        apply plugin: 'maven'
+
+        publications {
+            myPublication(MavenPublication) {
+                if (components.getNames().contains('web'))
+                    from components.web
+                else
+                    from components.java
+            }
+        }
+        repositories {
+            def path = version.contains('SNAPSHOT')? 'snapshots':'releases'
+            maven {
+                url "file:/${project.parent.projectDir}/artifacts/$path"
+            }
+        }
+    }
+
+    clean {
+        delete "file:/${project.parent.projectDir}/artifacts"
     }
 }
