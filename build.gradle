@@ -50,8 +50,6 @@ ext.libraries = [
         cli: 'commons-cli:commons-cli:1.2'
 ]
 
-task stage(dependsOn: ['clean', 'build'])
-
 allprojects {
     apply plugin: 'idea'
 }
@@ -116,4 +114,6 @@ subprojects {
     clean {
         delete "file:/${project.parent.projectDir}/artifacts"
     }
+
+    task stage(dependsOn: ['clean', 'build'])
 }
