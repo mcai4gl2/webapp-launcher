@@ -8,3 +8,5 @@ include 'http-client'
 
 include 'jetty-launcher'
 
+include 'jersey-guice-webapp'
+

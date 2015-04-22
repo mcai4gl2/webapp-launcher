@@ -1,6 +1,7 @@
 ext {
     spring_version = '4.1.1.RELEASE'
     tomcat_embed_version = '8.0.21'
+    jersey_version = '1.19'
 }
 
 ext.libraries = [
@@ -42,6 +43,14 @@ ext.libraries = [
                 "org.springframework:spring-test:$spring_version"
         ],
         guava: 'com.google.guava:guava:18.0',
+        jersey: [
+                "com.sun.jersey:jersey-server:$jersey_version",
+                "com.sun.jersey.contribs:jersey-guice:$jersey_version",
+                "com.sun.jersey:jersey-grizzly2:$jersey_version"
+        ],
+        jerseyClient: [
+                "com.sun.jersey:jersey-client:$jersey_version"
+        ],
         jackson: [
                 'com.fasterxml.jackson.core:jackson-core:2.4.3',
                 'com.fasterxml.jackson.core:jackson-databind:2.4.3'
