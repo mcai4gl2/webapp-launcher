@@ -1,16 +1,13 @@
 package webapp.launcher.jersey.spring.webapp;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Component
 @Path("test")
 public class EchoService {
-    @Autowired
+    @Inject
     private EchoFunction echoFunction;
 
     @GET
