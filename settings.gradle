@@ -10,3 +10,5 @@ include 'jetty-launcher'
 
 include 'jersey-guice-webapp'
 
+include 'jersey-spring-webapp'
+

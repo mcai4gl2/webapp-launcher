@@ -1,0 +1,21 @@
+description = 'Sample web application using jersey and spring'
+
+apply plugin: 'war'
+apply plugin: 'jetty'
+
+task explodedWar(type: Copy) {
+    into "${buildDir}/output/webapp"
+    with war
+}
+
+war.dependsOn explodedWar
+
+dependencies {
+    providedCompile libraries.servlet
+    compile libraries.jersey
+    compile ("com.sun.jersey.contribs:jersey-spring:$jersey_version") {
+        exclude group: 'org.springframework'
+    }
+    compile libraries.springCore
+    compile "org.springframework:spring-web:$spring_version"
+}
