@@ -7,8 +7,12 @@ import javax.ws.rs.PathParam;
 
 @Path("test")
 public class EchoService {
-    @Inject
     private EchoFunction echoFunction;
+
+    @Inject
+    public EchoService(EchoFunction echoFunction) {
+        this.echoFunction = echoFunction;
+    }
 
     @GET
     @Path("{input}")

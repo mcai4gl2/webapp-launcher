@@ -45,11 +45,11 @@ ext.libraries = [
         guava: 'com.google.guava:guava:18.0',
         jersey: [
                 "com.sun.jersey:jersey-server:$jersey_version",
-                "com.sun.jersey.contribs:jersey-guice:$jersey_version",
-                "com.sun.jersey:jersey-grizzly2:$jersey_version"
+                "com.sun.jersey.contribs:jersey-guice:$jersey_version"
         ],
         jerseyClient: [
-                "com.sun.jersey:jersey-client:$jersey_version"
+                "com.sun.jersey:jersey-client:$jersey_version",
+                "com.sun.jersey:jersey-grizzly2:$jersey_version"
         ],
         jackson: [
                 'com.fasterxml.jackson.core:jackson-core:2.4.3',
