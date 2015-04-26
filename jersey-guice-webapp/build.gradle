@@ -13,5 +13,6 @@ war.dependsOn explodedWar
 dependencies {
     providedCompile libraries.servlet
     compile libraries.jersey
+    compile libraries.guice
     testCompile libraries.jerseyClient
 }

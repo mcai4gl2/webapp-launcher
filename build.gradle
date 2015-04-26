@@ -1,7 +1,7 @@
 ext {
     spring_version = '4.1.1.RELEASE'
     tomcat_embed_version = '8.0.21'
-    jersey_version = '1.19'
+    glassfish_version = '2.17'
 }
 
 ext.libraries = [
@@ -44,12 +44,14 @@ ext.libraries = [
         ],
         guava: 'com.google.guava:guava:18.0',
         jersey: [
-                "com.sun.jersey:jersey-server:$jersey_version",
-                "com.sun.jersey.contribs:jersey-guice:$jersey_version"
+                "org.glassfish.jersey.core:jersey-server:$glassfish_version",
+                "org.glassfish.jersey.containers:jersey-container-servlet:$glassfish_version",
+                "org.glassfish.hk2:guice-bridge:2.3.0",
+                'com.google.inject.extensions:guice-servlet:3.0'
         ],
         jerseyClient: [
-                "com.sun.jersey:jersey-client:$jersey_version",
-                "com.sun.jersey:jersey-grizzly2:$jersey_version"
+                "org.glassfish.jersey.core:jersey-client:$glassfish_version",
+                "org.glassfish.jersey.containers:jersey-container-grizzly2-http:$glassfish_version"
         ],
         jackson: [
                 'com.fasterxml.jackson.core:jackson-core:2.4.3',

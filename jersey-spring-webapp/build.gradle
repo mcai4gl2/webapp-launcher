@@ -13,8 +13,7 @@ war.dependsOn explodedWar
 dependencies {
     providedCompile libraries.servlet
     compile libraries.jersey
-    compile libraries.guice
-    compile ("com.sun.jersey.contribs:jersey-spring:$jersey_version") {
+    compile ('org.glassfish.hk2:spring-bridge:2.3.0') {
         exclude group: 'org.springframework'
     }
     compile libraries.springCore

@@ -9,9 +9,8 @@
 
     <context:property-placeholder location="classpath:application.properties" />
 
-    <bean class="webapp.launcher.jersey.spring.webapp.EchoFunctionImpl" />
-    <bean class="webapp.launcher.jersey.spring.webapp.EchoService">
-        <constructor-arg index="1" type="java.lang.String" value="${test.input}"/>
+    <bean class="webapp.launcher.jersey.spring.webapp.EchoFunctionImpl">
+        <constructor-arg index="0" value="${test.input}" />
     </bean>
 
 </beans>
