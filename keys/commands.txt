@@ -1,0 +1,24 @@
+1. Create a root CA:
+openssl req -new -newkey rsa:1024 -nodes -out ca.csr -keyout ca.key
+openssl x509 -trustout -signkey ca.key -days 1825 -req -in ca.csr -out ca.pem
+echo "02" > ca.srl
+
+2. Create Server key and store:
+keytool -genkey -alias mykey -keyalg RSA -keystore serverkeystore -keypass 741152 -storepass 741152
+
+3. Import root CA into server store:
+keytool -import -keystore serverkeystore -file ca.pem -alias selfca
+
+4. Create client certificate:
+openssl req -new -newkey rsa:1024 -nodes -out client1.req -keyout client1.key
+
+5. Sign client request using root CA:
+openssl x509 -CA ca.pem -CAkey ca.key -CAserial ca.srl -req -in client1.req -out client1.pem
+
+6. Create pkcs12 client certificate:
+openssl pkcs12 -export -in client1.pem -inkey client1.key -out client1.p12
+
+
+Useful commands:
+keytool -v -list -keystore client.p12 -storetype pkcs12
+openssl pkcs12 -info client1.p12 -passin pass:123456
